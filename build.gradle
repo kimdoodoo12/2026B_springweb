@@ -18,9 +18,15 @@ repositories {
 }
 
 dependencies {
+	// 의존성 (dependencies) { } 안에 추가적인 라이브러리 코드
+	// 1. springboot
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// 2. jdbc
+	implementation 'org.springframework.boot:spring-boot-starter'
+  	runtimeOnly 'com.mysql:mysql-connector-j'
 }
 
 tasks.named('test') {
