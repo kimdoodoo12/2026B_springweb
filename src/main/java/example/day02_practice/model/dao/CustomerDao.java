@@ -47,12 +47,12 @@ public class CustomerDao extends BaseDao{
         return customerDtos;
     }
 
-    public boolean update(int no, int people){
+    public boolean update(String phone, int people){
         try{
-            String sql = "UPDATE customer SET people = ? WHERE no = ?";
+            String sql = "UPDATE customer SET people = ? WHERE phone = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setInt(2, no);
+            ps.setString(2, phone);
             ps.setInt(1, people);
 
             int result = ps.executeUpdate();
@@ -65,11 +65,11 @@ public class CustomerDao extends BaseDao{
         return false;
     }
 
-    public boolean delete(int no){
+    public boolean delete(String phone){
         try{
-            String sql = "DELETE FROM customer where no = ?";
+            String sql = "DELETE FROM customer where phone = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, no);
+            ps.setString(1, phone);
             int result = ps.executeUpdate();
 
             if (result == 1){

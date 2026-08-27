@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+</head>
+<body>
+    
+    <h3> 스프링(톰캣) 서버에서 실행된 HTML </h3>
+    <div>
+        내용 : <input type="text" class="content"> <br/>
+        작성자: <input type="text" class="writer"> <br/>
+        <button onclick="boardSave()"> 등록 </button> 
+        <!-- button 클릭상자, onclick="JS함수()" : 해당 버튼 클릭시 js함수 발동-->
+    </div>
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>번호</th> <th>작성자</th> <th>내용</th> <th>비고</th>
+                </tr>
+            </thead>
+            <tbody class="boardList">
+                <tr>
+                    <td> 1 </td> <td> 유재석 </td> <td>안녕하세요</td>
+                    <td><button onclick="boardUpdate()">수정</button> <button onclick="boardDelete()">삭제</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
+<!--
+    스프링 프로젝트 내
+    src -> main -> java -> 자바파일(controller) = 서블릿 (동적서버/웹컨테이너)
+    src -> main -> resources -> static(html/css/js등) -> 정적서버/웹서버
+        src -> main -> resources -> static -> day02 -> index.html 파일 생성
+        통신경로: http://127.0.0.1:8080/
+
+    HTTP: 프로토콜/규약/규칙 , http:/ip:port/경로
+        -> 핸드폰 전화 규칙 , 010-0000-0000
+    HTTP 통신 방법/도구: 1) 브라우저 2)TalendAPI 3) JS(AXOIS)
+        -> 핸드폰기, 집전화기
+-->

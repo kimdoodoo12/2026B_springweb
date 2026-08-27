@@ -37,14 +37,14 @@ public class CustomerController {
     }
 
     @PutMapping("/customer/update")
-    public boolean update(int no, int people){
-        boolean result = cd.update(no, people);
+    public boolean update(String phone, int people){
+        boolean result = cd.update(phone, people);
         return result;
     }
 
     @DeleteMapping("/customer/delete")
-    public boolean delete(int no){
-        boolean result = cd.delete(no);
+    public boolean delete(String phone){
+        boolean result = cd.delete(phone);
         return result;
     }
 }
