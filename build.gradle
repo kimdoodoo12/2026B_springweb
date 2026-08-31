@@ -27,6 +27,10 @@ dependencies {
 	// 2. jdbc
 	implementation 'org.springframework.boot:spring-boot-starter'
   	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	// 3. 롬복
+	compileOnly 'org.projectlombok:lombok'
+  	annotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {
