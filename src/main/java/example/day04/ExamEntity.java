@@ -6,13 +6,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity // 엔티티 객체(빈) 등록
 @Table(name = "exam")   // 매핑/연결할 (DB)테이블의 이름 정의, 생략시 클래스명 자동 정의
-@Data@AllArgsConstructor@NoArgsConstructor@Builder
+@Data@AllArgsConstructor@NoArgsConstructor
 public class ExamEntity {
 
     // 엔티티는 무조건 1개 이상의 PK를 갖는다.
