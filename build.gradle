@@ -36,3 +36,9 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+// @RequestParam / @PathVariable 등에서 매개변수 이름을 생략해도
+// 리플렉션으로 이름을 읽을 수 있도록 -parameters 옵션 추가 (없으면 500 발생)
+tasks.withType(JavaCompile).configureEach {
+	options.compilerArgs << '-parameters'
+}
