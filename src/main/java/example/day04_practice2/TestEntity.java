@@ -14,9 +14,9 @@ public class TestEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer no;
+    private Integer no;
 
-    String content;
-    String writer;
+    private String content;
+    private String writer;
     
 }

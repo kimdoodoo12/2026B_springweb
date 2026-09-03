@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@RestController
+@RestController // @Controller(+@Component) + @ResponseBody
 public class TestController {
     
     private final TestService testService;
