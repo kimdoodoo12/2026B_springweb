@@ -1,10 +1,9 @@
-package example.practice5.model.dto;
+package example.practice5_ver2.model.dto;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
-import example.practice5.model.entity.BoardEntity;
+import example.practice5_ver2.model.entity.BoardEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,43 +12,33 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Getter @Setter @ToString @Builder 
-@NoArgsConstructor @AllArgsConstructor 
+@AllArgsConstructor @NoArgsConstructor 
 public class BoardDto {
-    
     private Integer id;
-
     private String author;
     private String content;
     private String password;
-
-    private List<CommentDto> comments; // 서비스로직에서?
-
+    private List<CommentDto> comments;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-
     public BoardEntity toEntity(){
         return BoardEntity.builder()
+            .boardId(this.id)
             .author(this.author)
             .content(this.content)
             .password(this.password)
             .build();
     }
 
-    public static BoardDto from(BoardEntity entity){
-
-        List<CommentDto> list = new ArrayList<>();
-        entity.getCList().forEach((cEntity)->{
-                list.add(CommentDto.from(cEntity));
-            });
-
+    public static BoardDto from(BoardEntity boardEntity){
         return BoardDto.builder()
-            .id(entity.getBoardId())
-            .author(entity.getAuthor())
-            .content(entity.getContent())
-            .createdAt(entity.getCreatedAt())
-            .updatedAt(entity.getUpdatedAt())
-            .comments(list)
+            .id(boardEntity.getBoardId())
+            .author(boardEntity.getAuthor())
+            .content(boardEntity.getContent())
+            .comments(boardEntity.getComments().stream().map(CommentDto::from).toList())
+            .createdAt(boardEntity.getCreatedAt())
+            .updatedAt(boardEntity.getUpdatedAt())
             .build();
     }
 }

@@ -42,6 +42,7 @@ public class BoardService {
 
     public boolean delete(Integer id, String password){
         Optional<BoardEntity> optional = boardRepository.findById(id);
+        BoardEntity boardEntity = boardRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("게시물이 존재하지 않습니다"));
 
         if(optional.isPresent()){
             BoardEntity entity = optional.get();
